@@ -5,14 +5,20 @@
 - `filterProducts`
 - `sortProducts`
 - `validateEmail`
-- `fetchUserData` (bonus async)
+- `fetchUserData` (⭐ Bonus async test)
+
+---
 
 ## ✅ Tech Stack
 - Node.js
 - [Jest](https://jestjs.io/)
+- GitHub Actions (CI/CD)
 
-## 🚀 How to Run
+---
+
+## 🚀 How to Run Locally
+
 ```bash
 npm install
-npm test         # Run tests
-npm run coverage # Generate coverage report
+npm run unit-tests     # Run all tests
+npm run coverage       # Generate code coverage report

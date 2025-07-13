@@ -1,4 +1,4 @@
-name: JavaScript Unit Tests
+name: Node.js CI
 
 on:
   push:
@@ -7,29 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  unit-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v3
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
 
-      - name: ⚙️ Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: ⚙️ Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: 📦 Install Dependencies
-        run: npm install
+    - name: 📦 Install dependencies
+      run: npm install
 
-      - name: 🧪 Run Unit Tests
-        run: npm run unit-tests
+    - name: 🧪 Run tests
+      run: npm test
 
-      - name: 📊 Generate Coverage Report
-        run: npm run coverage
-
-      - name: 📤 Upload Coverage HTML Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-report
-          path: coverage/lcov-report/
+    - name: 📊 Generate coverage report
+      run: npm run coverage
